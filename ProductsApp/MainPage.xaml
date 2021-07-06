@@ -53,7 +53,7 @@
 
         <StackPanel Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Margin="5" 
-                    x:Name="BAddProduct" >Add Product</Button>
+                    x:Name="BAddProduct" Click="OnAddProduct">Add Product</Button>
             <Button Margin="5" 
                     x:Name="BClear" >Clear</Button>
 

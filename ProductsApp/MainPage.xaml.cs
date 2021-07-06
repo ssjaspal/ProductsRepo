@@ -22,9 +22,29 @@ namespace ProductsApp
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private ProductRepository _products = new ProductRepository();
+
         public MainPage()
         {
             this.InitializeComponent();
+        }
+
+        private Product CaptureUserInput()
+        {
+            int productCode = int.Parse(TxtProductCode.Text);
+            string productName = TxtProductName.Text;
+            ProductType productType = Enum.Parse<ProductType>(CmbProductType.SelectedItem.ToString());
+            float price = float.Parse(TxtPrice.Text);
+            int stock = int.Parse(TxtStock.Text);
+            Product product = new Product(productCode, productName, productType, price, stock);
+            return product;
+        }
+
+        private void OnAddProduct(object sender, RoutedEventArgs e)
+        {
+            Product product = CaptureUserInput();
+            _products.AddProduct(product);
+            LstProducts.Items.Add($"{product.ProductCode}, {product.ProductName}");
         }
     }
 }
