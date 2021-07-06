@@ -9,6 +9,64 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition ></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.ColumnSpan="3" Text="Product Info" FontSize="36" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="DarkBlue"/>
 
+        <TextBlock Grid.Row="1" Grid.Column="0" FontSize="12" HorizontalAlignment="Right" VerticalAlignment="Center">Product Code</TextBlock>
+        <TextBox Grid.Row="1" Grid.Column="1"  x:Name="TxtProductCode"  
+                 Margin="5" PlaceholderText="e.g. 12" VerticalAlignment="Center"></TextBox>
+
+        <TextBlock Grid.Row="2" Grid.Column="0" FontSize="12" HorizontalAlignment="Right" VerticalAlignment="Center">Product Name</TextBlock>
+        <TextBox Grid.Row="2" Grid.Column="1"  x:Name="TxtProductName"  Margin="5" PlaceholderText="Name of the product" VerticalAlignment="Center"></TextBox>
+
+        <TextBlock Grid.Row="3" Grid.Column="0" FontSize="12" HorizontalAlignment="Right" VerticalAlignment="Center">Product Type</TextBlock>
+        <ComboBox x:Name="CmbProductType" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" Margin="5" VerticalAlignment="Center" >
+            <x:String>Electronics</x:String>
+            <x:String>Food</x:String>
+            <x:String>Clothing</x:String>
+        </ComboBox>
+
+
+        <TextBlock Grid.Row="4" Grid.Column="0" FontSize="12" HorizontalAlignment="Right" VerticalAlignment="Center">Price</TextBlock>
+        <TextBox Grid.Row="4" Grid.Column="1"  x:Name="TxtPrice"  Margin="5" PlaceholderText="Price" VerticalAlignment="Center"></TextBox>
+
+        <TextBlock Grid.Row="5" Grid.Column="0" FontSize="12" HorizontalAlignment="Right" VerticalAlignment="Center">Stock</TextBlock>
+        <TextBox Grid.Row="5" Grid.Column="1"  x:Name="TxtStock"  Margin="5" PlaceholderText="Stock" VerticalAlignment="Center"></TextBox>
+
+
+        <TextBlock x:Name="TxtErrMessage" Grid.Column="1" HorizontalAlignment="Left" Margin="5" Grid.Row="8" Text="" TextWrapping="Wrap" VerticalAlignment="Center"/>
+
+        <StackPanel Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Margin="5" 
+                    x:Name="BAddProduct" >Add Product</Button>
+            <Button Margin="5" 
+                    x:Name="BClear" >Clear</Button>
+
+            <TextBox x:Name="TxtUnitsRequired" Margin="5" VerticalAlignment="Center"/>
+
+            <Button Margin="5"  
+                    x:Name="BPlaceOrder" >Place Order</Button>
+
+
+        </StackPanel>
+
+        <ListView Grid.Row="1" Grid.Column="2" Grid.RowSpan="5" x:Name="LstProducts" Margin="10" BorderBrush="DarkBlue">
+
+        </ListView>
     </Grid>
 </Page>
