@@ -35,6 +35,7 @@ namespace ProductsApp
         /// <param name="product">The new product to be added to the repository.</param>
         public void AddProduct(Product product)
         {
+            //TODO: Make sure that the new product is not a duplicate, i.e. does not have a code which is the same as that of any of the existing codes
             _products.Add(product);
         }
         

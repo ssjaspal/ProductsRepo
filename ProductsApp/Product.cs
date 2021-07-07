@@ -23,7 +23,8 @@ namespace ProductsApp
         private ProductType _productType;
         private float _price;
         private int _stock;
-        
+
+
         /// <summary>
         /// Initializes a new instance of Product with the specified values.
         /// </summary>
@@ -31,7 +32,7 @@ namespace ProductsApp
         /// <param name="productName">Name of the product</param>
         /// <param name="productType">Product category </param>
         /// <param name="price">Original price of the product</param>
-        /// <param name="stock">Number of items in stock</param>
+        /// <param name="stock">Number of items in stock. Default value is 100</param>
         public Product(int productCode, string productName, ProductType productType, float price,
             int stock=100)
         {
@@ -47,7 +48,8 @@ namespace ProductsApp
         /// </summary>
         public int ProductCode
         {
-            get => _productCode;
+            get => _productCode; //equivalent to get { return _productCode;}
+
             private set
             {
                 if (value <= 0)
@@ -107,7 +109,6 @@ namespace ProductsApp
                 _price = value;
             }
         }
-
 
         /// <summary>
         /// Allows processing a sale

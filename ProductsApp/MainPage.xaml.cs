@@ -27,6 +27,7 @@ namespace ProductsApp
         public MainPage()
         {
             this.InitializeComponent();
+            PerishableProduct p = new PerishableProduct(1, "test", ProductType.Food, 10, DateTime.Today.AddDays(3), 20);
         }
 
         private Product CaptureUserInput()
