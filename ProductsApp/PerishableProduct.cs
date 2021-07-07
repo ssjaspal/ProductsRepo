@@ -41,5 +41,14 @@ namespace ProductsApp
                 _expiryDate = value;
             }
         }
+
+        /// <summary>
+        /// Converts the current instance of PerishableProduct to its string equivalent.
+        /// </summary>
+        /// <returns>A string containing comma separated list of all the fields</returns>
+        public override string ToString()
+        {
+            return $"{ProductCode},{ProductName},{ProductType},{Price},{Stock},{ExpiryDate}";
+        }
     }
 }

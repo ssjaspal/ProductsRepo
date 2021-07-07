@@ -43,6 +43,8 @@ namespace ProductsApp
                 product = new PerishableProduct(productCode, productName, productType, price, DpExpiryDate.Date.Date, stock);
             else
                 product = new Product(productCode, productName, productType, price, stock);
+            
+            //string s = product.ToString(); //Just a test to demonstrate polymorhic behaviour of product
             return product;
         }
 
@@ -50,7 +52,8 @@ namespace ProductsApp
         {
             Product product = CaptureUserInput();
             _products.AddProduct(product);
-            LstProducts.Items.Add($"{product.ProductCode}, {product.ProductName}");
+            //LstProducts.Items.Add($"{product.ProductCode}, {product.ProductName}");
+            LstProducts.Items?.Add(product);
         }
 
         private void OnExpiryDateClicked(object sender, RoutedEventArgs e)
