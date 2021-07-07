@@ -50,11 +50,11 @@
 
 
         <TextBlock Grid.Row="6" Grid.Column="0" FontSize="12" HorizontalAlignment="Right" VerticalAlignment="Center">Is Perishable</TextBlock>
-        <CheckBox Grid.Row="6" Grid.Column="1"  x:Name="ChkIsPerishable"  Margin="5" VerticalAlignment="Center"></CheckBox>
+        <CheckBox Grid.Row="6" Grid.Column="1"  x:Name="ChkIsPerishable"  Margin="5" VerticalAlignment="Center" Click="OnExpiryDateClicked"></CheckBox>
 
 
         <TextBlock Grid.Row="7" Grid.Column="0" FontSize="12" HorizontalAlignment="Right" VerticalAlignment="Center">Expiry Date</TextBlock>
-        <DatePicker Grid.Row="7" Grid.Column="1"  x:Name="DpExpiryDate"  Margin="5" VerticalAlignment="Center"></DatePicker>
+        <DatePicker Grid.Row="7" Grid.Column="1"  x:Name="DpExpiryDate"  Margin="5" VerticalAlignment="Center" IsEnabled="False"></DatePicker>
 
         
         <TextBlock x:Name="TxtErrMessage" Grid.Column="1" HorizontalAlignment="Left" Margin="5" Grid.Row="8" Text="" TextWrapping="Wrap" VerticalAlignment="Center"/>
