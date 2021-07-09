@@ -35,7 +35,7 @@ namespace ProductsApp
             Product product;
             int productCode = int.Parse(TxtProductCode.Text);
             string productName = TxtProductName.Text;
-            ProductType productType = Enum.Parse<ProductType>(CmbProductType.SelectedItem.ToString());
+            ProductType productType = Enum.Parse<ProductType>(CmbProductType.SelectedItem?.ToString());
             float price = float.Parse(TxtPrice.Text);
             int stock = int.Parse(TxtStock.Text);
 
@@ -50,10 +50,17 @@ namespace ProductsApp
 
         private void OnAddProduct(object sender, RoutedEventArgs e)
         {
-            Product product = CaptureUserInput();
-            _products.AddProduct(product);
-            //LstProducts.Items.Add($"{product.ProductCode}, {product.ProductName}");
-            LstProducts.Items?.Add(product);
+            try
+            {
+                Product product = CaptureUserInput();
+                _products.AddProduct(product);
+                //LstProducts.Items.Add($"{product.ProductCode}, {product.ProductName}");
+                LstProducts.Items?.Add(product);
+            }
+            catch (Exception ex)
+            {
+                TxtErrMessage.Text = ex.Message;
+            }
         }
 
         private void OnExpiryDateClicked(object sender, RoutedEventArgs e)

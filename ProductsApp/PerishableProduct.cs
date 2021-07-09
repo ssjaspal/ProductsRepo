@@ -48,7 +48,7 @@ namespace ProductsApp
         /// <returns>A string containing comma separated list of all the fields</returns>
         public override string ToString()
         {
-            return $"{ProductCode},{ProductName},{ProductType},{Price},{Stock},{ExpiryDate}";
+            return $"{base.ToString()},{ExpiryDate}";
         }
     }
 }

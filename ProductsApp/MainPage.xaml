@@ -19,6 +19,7 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition ></RowDefinition>
+            <RowDefinition ></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -57,9 +58,9 @@
         <DatePicker Grid.Row="7" Grid.Column="1"  x:Name="DpExpiryDate"  Margin="5" VerticalAlignment="Center" IsEnabled="False"></DatePicker>
 
         
-        <TextBlock x:Name="TxtErrMessage" Grid.Column="1" HorizontalAlignment="Left" Margin="5" Grid.Row="8" Text="" TextWrapping="Wrap" VerticalAlignment="Center"/>
+        <TextBlock x:Name="TxtErrMessage" Grid.Column="0" HorizontalAlignment="Left" Margin="5" Grid.Row="8" Text="" TextWrapping="Wrap" VerticalAlignment="Center"/>
 
-        <StackPanel Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center">
+        <StackPanel Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Margin="5" 
                     x:Name="BAddProduct" Click="OnAddProduct">Add Product</Button>
             <Button Margin="5" 
