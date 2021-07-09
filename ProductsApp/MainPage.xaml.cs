@@ -57,9 +57,11 @@ namespace ProductsApp
                 //LstProducts.Items.Add($"{product.ProductCode}, {product.ProductName}");
                 LstProducts.Items?.Add(product);
             }
-            catch (FormatException formatEx)
+            catch (NotEnoughStockException neStockEx)
             {
-                TxtErrMessage.Text = "You entered an invalid number";
+                TxtErrMessage.Text = "Not enough stock in inventory to handle this order";
+                //ask the user to accept as many items as we have in the stock
+                //or, place a back order
             }
             catch (Exception ex)
             {

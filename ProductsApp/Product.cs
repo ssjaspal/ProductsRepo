@@ -123,7 +123,7 @@ namespace ProductsApp
 
             //make sure we have enough stock
             if (unitsRequired > Stock)
-                throw new Exception("Not enough stock available.");
+                throw new NotEnoughStockException();
 
             //process the sale
             Stock -= unitsRequired;
