@@ -115,11 +115,11 @@ namespace ProductsApp
         /// </summary>
         /// <param name="unitsRequired">Number of units to be sold</param>
         /// <returns>The stock level after the sale</returns>
-        public int SellProduct(int unitsRequired)
+        public  int SellProduct(int unitsRequired)
         {
             //make sure unitsRequired are greater than zero
             if (unitsRequired <= 0)
-                throw new Exception("Units requested must be greater than zero");
+                throw new ArgumentException("Units requested must be greater than zero", "unitsRequired");
 
             //make sure we have enough stock
             if (unitsRequired > Stock)

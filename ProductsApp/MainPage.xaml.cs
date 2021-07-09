@@ -32,10 +32,10 @@ namespace ProductsApp
 
         private Product CaptureUserInput()
         {
-            Product product;
+            Product product=null;
             int productCode = int.Parse(TxtProductCode.Text);
             string productName = TxtProductName.Text;
-            ProductType productType = Enum.Parse<ProductType>(CmbProductType.SelectedItem?.ToString());
+            ProductType productType = Enum.Parse<ProductType>(CmbProductType.SelectedItem.ToString());
             float price = float.Parse(TxtPrice.Text);
             int stock = int.Parse(TxtStock.Text);
 
@@ -56,6 +56,10 @@ namespace ProductsApp
                 _products.AddProduct(product);
                 //LstProducts.Items.Add($"{product.ProductCode}, {product.ProductName}");
                 LstProducts.Items?.Add(product);
+            }
+            catch (FormatException formatEx)
+            {
+                TxtErrMessage.Text = "You entered an invalid number";
             }
             catch (Exception ex)
             {
