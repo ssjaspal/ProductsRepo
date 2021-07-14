@@ -35,7 +35,7 @@ namespace ProductsApp
             Product product=null;
             int productCode = int.Parse(TxtProductCode.Text);
             string productName = TxtProductName.Text;
-            ProductType productType = Enum.Parse<ProductType>(CmbProductType.SelectedItem.ToString());
+            ProductType productType = Enum.Parse<ProductType>(CmbProductType.SelectedItem?.ToString());
             float price = float.Parse(TxtPrice.Text);
             int stock = int.Parse(TxtStock.Text);
 
@@ -57,12 +57,7 @@ namespace ProductsApp
                 //LstProducts.Items.Add($"{product.ProductCode}, {product.ProductName}");
                 LstProducts.Items?.Add(product);
             }
-            catch (NotEnoughStockException neStockEx)
-            {
-                TxtErrMessage.Text = "Not enough stock in inventory to handle this order";
-                //ask the user to accept as many items as we have in the stock
-                //or, place a back order
-            }
+            
             catch (Exception ex)
             {
                 TxtErrMessage.Text = ex.Message;
@@ -72,6 +67,26 @@ namespace ProductsApp
         private void OnExpiryDateClicked(object sender, RoutedEventArgs e)
         {
             DpExpiryDate.IsEnabled = ChkIsPerishable.IsChecked??false; //evaluate null in IsChecked as false
+        }
+
+        private void OnPlaceOrder(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                int units = int.Parse(TxtUnitsRequired.Text);
+                Product product = (Product) LstProducts.SelectedItem;
+                product?.SellProduct(units);
+            }
+            catch (NotEnoughStockException neStockEx)
+            {
+                TxtErrMessage.Text = $"We have just {neStockEx.Currentstock} items in our stock right now";
+                //ask the user to accept as many items as we have in the stock
+                //or, place a back order
+            }
+            catch (Exception ex)
+            {
+                TxtErrMessage.Text = ex.Message;
+            }
         }
     }
 }

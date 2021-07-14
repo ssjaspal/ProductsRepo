@@ -69,7 +69,7 @@
             <TextBox x:Name="TxtUnitsRequired" Margin="5" VerticalAlignment="Center"/>
 
             <Button Margin="5"  
-                    x:Name="BPlaceOrder" >Place Order</Button>
+                    x:Name="BPlaceOrder" Click="OnPlaceOrder" >Place Order</Button>
 
 
         </StackPanel>
